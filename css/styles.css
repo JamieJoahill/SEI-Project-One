@@ -6,6 +6,7 @@
 
 body {
   height: 100vh;
+  font-family: 'Arial', sans-serif;
 }
 
 .grid-wrapper {
@@ -16,7 +17,7 @@ body {
 }
 
 .grid {
-  border: 1px solid blue;
+  border: 1px solid rgb(121, 121, 124);
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -27,13 +28,21 @@ body {
 }
 
 .grid div {
-  border: 1px solid red;
+  border: 1px solid rgb(224, 221, 221);
   flex-grow: 1;
   height: 5%;
   width: 10%;
+  color: rgb(231, 227, 227);
   /* Remove Later >>>> */
   display: flex;
   align-items: center;
   justify-content: center;
   /* <<<<<<<<<<<<<<<<< */
+}
+
+.grid div.block {
+  border: 2px solid black;
+  height: 5%;
+  width: 10%;
+  background: yellow;
 }

@@ -74,6 +74,10 @@ const gridHeight = 20
 const cellCount = gridWidth * gridHeight
 const cells = []
 
+const blockClass = 'block'
+const blockStartingPosition = 0
+let blockCurrentPosition = 0 // This value will update as it moves
+
 function createGrid() {
   for(let i = 0; i < cellCount; i++) {
     const cell = document.createElement('div')
@@ -84,7 +88,20 @@ function createGrid() {
 
     // console.log(cell)
   }
-  console.log(cells)
+  addBlock(blockStartingPosition)
+  // console.log(cells)
 }
 
 createGrid()
+
+
+// Testing block movement and barriers
+function addBlock(blockPosition) {
+  cells[blockPosition].classList.add(blockClass)
+}
+
+function removeBlock(blockPosition) {
+  cells[blockPosition].classList.remove(blockClass)
+}
+
+
