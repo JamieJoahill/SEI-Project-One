@@ -65,3 +65,26 @@
 // Left Elbow
 // Right Elbow
 // Bar
+
+// Element Selectors
+const grid = document.querySelector('.grid')
+
+const gridWidth = 10
+const gridHeight = 20
+const cellCount = gridWidth * gridHeight
+const cells = []
+
+function createGrid() {
+  for(let i = 0; i < cellCount; i++) {
+    const cell = document.createElement('div')
+    cell.innerText = i // assign each cell a number value
+
+    grid.appendChild(cell)
+    cells.push(cell) // pushes all cells into the array 
+
+    // console.log(cell)
+  }
+  console.log(cells)
+}
+
+createGrid()
