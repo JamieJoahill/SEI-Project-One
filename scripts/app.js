@@ -70,7 +70,7 @@
 const grid = document.querySelector('.grid')
 
 const gridWidth = 10
-const gridHeight = 20
+const gridHeight = 22
 const cellCount = gridWidth * gridHeight
 const cells = []
 
@@ -105,3 +105,24 @@ function removeBlock(blockPosition) {
 }
 
 
+function handleKeyPress(event) {
+  console.log(event.keyCode)
+
+  const key = event.keyCode
+
+  removeBlock(blockCurrentPosition)
+
+  if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
+    blockCurrentPosition++
+  } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
+    blockCurrentPosition--
+  } else if(key === 38 && blockCurrentPosition >= gridHeight) { // Move Up
+    blockCurrentPosition -= 10
+  } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
+    blockCurrentPosition += 10
+  }
+
+  addBlock(blockCurrentPosition)
+}
+
+document.addEventListener('keydown', handleKeyPress)
