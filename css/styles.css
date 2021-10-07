@@ -3,3 +3,14 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  height: 100vh;
+}
+
+.grid-wrapper {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
