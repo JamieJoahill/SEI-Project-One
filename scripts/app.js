@@ -81,7 +81,7 @@ let blockCurrentPosition = 0 // This value will update as it moves
 function createGrid() {
   for(let i = 0; i < cellCount; i++) {
     const cell = document.createElement('div')
-    cell.innerText = i // assign each cell a number value
+    //cell.innerText = i // assign each cell a number value
 
     grid.appendChild(cell)
     cells.push(cell) // pushes all cells into the array 
@@ -106,7 +106,7 @@ function removeBlock(blockPosition) {
 
 
 function handleKeyPress(event) {
-  console.log(event.keyCode)
+  // console.log(event.keyCode) - Log the key pressed
 
   const key = event.keyCode
 
@@ -116,7 +116,7 @@ function handleKeyPress(event) {
     blockCurrentPosition++
   } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
     blockCurrentPosition--
-  } else if(key === 38 && blockCurrentPosition >= gridHeight) { // Move Up
+  } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
     blockCurrentPosition -= 10
   } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
     blockCurrentPosition += 10

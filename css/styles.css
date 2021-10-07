@@ -23,16 +23,16 @@ body {
   height: 100%;
   align-items: center;
   justify-content: center;
-  height: 600px;
+  height: 650px;
   width: 350px;
 }
 
 .grid div {
-  border: 1px solid rgb(224, 221, 221);
+  border: 1px solid rgba(238, 238, 238, 0.336);
   flex-grow: 1;
   height: 5%;
   width: 10%;
-  color: rgb(231, 227, 227);
+  color: rgb(245, 243, 243);
   /* Remove Later >>>> */
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@ body {
 }
 
 .grid div.block {
-  border: 2px solid black;
+  border: 1px solid black;
   height: 5%;
   width: 10%;
   background: yellow;
