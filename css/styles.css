@@ -25,3 +25,15 @@ body {
   height: 600px;
   width: 350px;
 }
+
+.grid div {
+  border: 1px solid red;
+  flex-grow: 1;
+  height: 5%;
+  width: 10%;
+  /* Remove Later >>>> */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* <<<<<<<<<<<<<<<<< */
+}
