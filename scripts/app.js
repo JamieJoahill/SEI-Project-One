@@ -73,6 +73,7 @@ const gridWidth = 10
 const gridHeight = 22
 const cellCount = gridWidth * gridHeight
 const cells = []
+const tetrominoes = ['Tee', 'Left Kink', 'Right Kink', 'Square', 'Left Elbow', 'Right Elbow', 'Bar']
 
 const blockClass = 'block'
 const blockStartingPosition = 0
