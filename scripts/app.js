@@ -70,8 +70,9 @@
 const grid = document.querySelector('.grid')
 
 const gridWidth = 10
-const gridHeight = 22
-const cellCount = gridWidth * gridHeight
+const gridHeight = 20
+// const cellCount = gridWidth * gridHeight
+const rows = []
 const cells = []
 const tetrominoes = ['Tee', 'Left Kink', 'Right Kink', 'Square', 'Left Elbow', 'Right Elbow', 'Bar']
 
@@ -79,21 +80,56 @@ const blockClass = 'block'
 const blockStartingPosition = 0
 let blockCurrentPosition = 0 // This value will update as it moves
 
+
+
 function createGrid() {
-  for(let i = 0; i < cellCount; i++) {
-    const cell = document.createElement('div')
-    //cell.innerText = i // assign each cell a number value
+  for(let i = 0; i < gridHeight; i++) {
+    const row = document.createElement('div')
+    row.classList.add(`row`)
+    // row.classList.add(`row-${i}`)
+    row.dataset.row = `${i}`
+    // row.style.width = '100%'
+    // row.style.height = '10%'
+    grid.appendChild(row)
+    rows.push(row)
 
-    grid.appendChild(cell)
-    cells.push(cell) // pushes all cells into the array 
-
-    // console.log(cell)
+    for(let i = 0; i < gridWidth; i++) {
+      //console.log(row)
+      const cell = document.createElement('div')
+      cell.classList.add('cell')
+      // cell.classList.add(`cell-${i}`)
+      cell.dataset.column = `${i}`
+      // cell.style.width = '100%'
+      // cell.style.height = '100%'
+      row.appendChild(cell)
+      cells.push(cell)
+    }
   }
-  addBlock(blockStartingPosition)
-  // console.log(cells)
 }
 
 createGrid()
+
+
+function createTetrominoes() {
+  // console.log(rows)
+  // console.log(cells)
+  const shapes = []
+
+  const tee = {
+    location: [{}, {}]
+  }
+  function Tee() {
+    const tee = [[0,1], [0,2]]
+  }
+  console.log(rows[0])
+  console.log(cells[1])
+  console.log(rows[0])
+}
+
+console.log(createTetrominoes())
+// console.log(rows)
+// console.log(cells)
+
 
 
 // Testing block movement and barriers
