@@ -74,7 +74,8 @@ const gridHeight = 20
 // const cellCount = gridWidth * gridHeight
 const rows = []
 const cells = []
-const tetrominoes = ['Tee', 'Left Kink', 'Right Kink', 'Square', 'Left Elbow', 'Right Elbow', 'Bar']
+// onst tetrominoes = ['Tee', 'Left Kink', 'Right Kink', 'Square', 'Left Elbow', 'Right Elbow', 'Bar']
+
 
 const blockClass = 'block'
 const blockStartingPosition = 0
@@ -109,26 +110,57 @@ function createGrid() {
 
 createGrid()
 
-
-function createTetrominoes() {
-  // console.log(rows)
-  // console.log(cells)
-  const shapes = []
-
-  const tee = {
-    location: [{}, {}]
+const tetrominoes = {
+  Tee: {
+    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 0}, { rows: 1, cell: 1}, {rows: 1, cell: 2}]
+  },
+  LeftKink: {
+    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 0}]
+  },
+  RightKink: {
+    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 2}]
+  },
+  Square: {
+    dimensions: [{rows: 0, cell: 0}, {rows: 0, cell: 1}, { rows: 1, cell: 0}, {rows: 1, cell: 1}]
+  },
+  LeftElbow: {
+    dimensions: [{rows: 0, cell: 0}, {rows: 1, cell: 0}, { rows: 2, cell: 0}, {rows: 3, cell: 1}]
+  },
+  RightElbow: {
+    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 2}]
+  },
+  Bar: {
+    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 0}, { rows: 1, cell: 1}, {rows: 1, cell: 2}]
   }
-  function Tee() {
-    const tee = [[0,1], [0,2]]
-  }
-  console.log(rows[0])
-  console.log(cells[1])
-  console.log(rows[0])
 }
 
-console.log(createTetrominoes())
+console.log(tetrominoes.Tee.dimensions)
+
+// rows.map(row => {
+//     console.log(row[0].children)
+// })
+
+
+function generateTetrominoes() {
+  // this function will generate a random Tetrominoe based on it's Dimmensions
+
+  // console.log(rows)
+  // console.log(cells)
+
+  // console.log(rows[0])
+  // console.log(cells[1])
+  // console.log(rows[0])
+}
+
+// console.log(createTetrominoes())
 // console.log(rows)
 // console.log(cells)
+
+
+
+
+
+
 
 
 
@@ -140,7 +172,6 @@ function addBlock(blockPosition) {
 function removeBlock(blockPosition) {
   cells[blockPosition].classList.remove(blockClass)
 }
-
 
 function handleKeyPress(event) {
   // console.log(event.keyCode) - Log the key pressed
