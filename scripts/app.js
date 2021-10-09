@@ -110,31 +110,144 @@ function createGrid() {
 
 createGrid()
 
-const tetrominoes = {
-  Tee: {
-    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 0}, { rows: 1, cell: 1}, {rows: 1, cell: 2}]
-  },
-  LeftKink: {
-    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 0}]
-  },
-  RightKink: {
-    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 2}]
-  },
-  Square: {
-    dimensions: [{rows: 0, cell: 0}, {rows: 0, cell: 1}, { rows: 1, cell: 0}, {rows: 1, cell: 1}]
-  },
-  LeftElbow: {
-    dimensions: [{rows: 0, cell: 0}, {rows: 1, cell: 0}, { rows: 2, cell: 0}, {rows: 3, cell: 1}]
-  },
-  RightElbow: {
-    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 2}]
-  },
-  Bar: {
-    dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 0}, { rows: 1, cell: 1}, {rows: 1, cell: 2}]
-  }
+// const tetrominoes = {
+//   Tee: {
+//     dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 0}, {rows: 1, cell: 1}, {rows: 1, cell: 2}]
+//   },
+//   LeftKink: {
+//     dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 0}]
+//   },
+//   RightKink: {
+//     dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 2}]
+//   },
+//   Square: {
+//     dimensions: [{rows: 0, cell: 0}, {rows: 0, cell: 1}, { rows: 1, cell: 0}, {rows: 1, cell: 1}]
+//   },
+//   LeftElbow: {
+//     dimensions: [{rows: 0, cell: 0}, {rows: 1, cell: 0}, { rows: 2, cell: 0}, {rows: 3, cell: 1}]
+//   },
+//   RightElbow: {
+//     dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 1}, { rows: 2, cell: 1}, {rows: 2, cell: 2}]
+//   },
+//   Bar: {
+//     dimensions: [{rows: 0, cell: 1}, {rows: 1, cell: 0}, { rows: 1, cell: 1}, {rows: 1, cell: 2}]
+//   }
+// }
+
+// for(let shape in tetrominoes) {
+//   console.log(shape)
+//   for(let dimensions in shape) {
+//     console.log(dimensions)
+//   }
+// }
+
+// Template - [{row: , cell: }, {row: , cell: }, {row: , cell: }, {row: , cell: }]
+
+const i = [{row: 0, cell: 0}, {row: 1, cell: 0}, {row: 2, cell: 0}, {row: 3, cell: 0}]
+const l = [{row: 0, cell: 0}, {row: 1, cell: 0}, { row: 2, cell: 0}, {row: 3, cell: 1}]
+const j = [{row: 0, cell: 0}, {row: 1, cell: 0}, {row: 2, cell: 0}, {row: 2, cell: 1}]
+const t = [{row: 0, cell: 1}, {row: 1, cell: 0}, {row: 1, cell: 1}, {row: 1, cell: 2}]
+const s = [{row: 0, cell: 1}, {row: 1, cell: 1}, { row: 2, cell: 1}, {row: 2, cell: 0}]
+const z = [{row: 0, cell: 1}, {row: 1, cell: 1}, { row: 2, cell: 1}, {row: 2, cell: 2}]
+const o = [{row: 0, cell: 0}, {row: 0, cell: 1}, { row: 1, cell: 0}, {row: 1, cell: 1}]
+// console.log(i.forEach(block => console.log(block)))
+
+function createI() {
+  // Refactor Create a function to take the bar array and loop through each item
+  console.log(rows[0].childNodes[0].classList.add('block'))
+  console.log(rows[1].childNodes[0].classList.add('block'))
+  console.log(rows[2].childNodes[0].classList.add('block'))
+  console.log(rows[3].childNodes[0].classList.add('block'))
+}
+// createI()
+
+function createL() {
+  console.log(rows[0].childNodes[0].classList.add('block'))
+  console.log(rows[1].childNodes[0].classList.add('block'))
+  console.log(rows[2].childNodes[0].classList.add('block'))
+  console.log(rows[2].childNodes[1].classList.add('block'))
 }
 
-console.log(tetrominoes.Tee.dimensions)
+// createL()
+
+function createJ() {
+  // Refactor Create a function to take the bar array and loop through each item
+  console.log(rows[0].childNodes[1].classList.add('block'))
+  console.log(rows[1].childNodes[1].classList.add('block'))
+  console.log(rows[2].childNodes[1].classList.add('block'))
+  console.log(rows[2].childNodes[0].classList.add('block'))
+}
+
+// createJ()
+
+function createT() {
+  console.log(rows[0].childNodes[1].classList.add('block'))
+  console.log(rows[1].childNodes[0].classList.add('block'))
+  console.log(rows[1].childNodes[1].classList.add('block'))
+  console.log(rows[1].childNodes[2].classList.add('block'))
+}
+
+// createT()
+
+function createS() {
+  // Refactor Create a function to take the bar array and loop through each item
+  console.log(rows[0].childNodes[1].classList.add('block'))
+  console.log(rows[1].childNodes[1].classList.add('block'))
+  console.log(rows[2].childNodes[1].classList.add('block'))
+  console.log(rows[2].childNodes[2].classList.add('block'))
+}
+// createS()
+
+function createZ() {
+  // Refactor Create a function to take the bar array and loop through each item
+  console.log(rows[0].childNodes[1].classList.add('block'))
+  console.log(rows[1].childNodes[1].classList.add('block'))
+  console.log(rows[2].childNodes[1].classList.add('block'))
+  console.log(rows[2].childNodes[0].classList.add('block'))
+}
+// createZ()
+
+// const o = [{row: 0, cell: 0}, {row: 0, cell: 1}, { row: 1, cell: 0}, {row: 1, cell: 1}]
+function createO() {
+  // Refactor Create a function to take the bar array and loop through each item
+  console.log(rows[0].childNodes[0].classList.add('block'))
+  console.log(rows[0].childNodes[1].classList.add('block'))
+  console.log(rows[1].childNodes[0].classList.add('block'))
+  console.log(rows[1].childNodes[1].classList.add('block'))
+}
+// createO()
+
+// [{rows: 0, cell: 1}, {rows: 1, cell: 0}, {rows: 1, cell: 1}, {rows: 1, cell: 2}]
+
+// console.log(rows.forEach(row => console.log(row.dataset.row)))
+// console.log(cells.forEach(cell => console.log(cell.dataset.column)))
+
+// rows.filter(row => {
+//   cells.filter(cell => {
+//     console.log(row.dataset)
+//     console.log(cell.dataset)
+//     if(row.dataset === 0 && cell.dataset === 1) {
+//       console.log(cell[0])
+//     }
+//   })
+// })
+
+rows.filter(row => {
+  // console.log(`Row Data Attribute ->`, row.getAttribute('data-row'))
+  const rowDataAttr = Number(row.getAttribute('data-row'))
+  //console.log(row)
+
+})
+
+// console.log(tee.forEach(item => {
+//   console.log(`item -->`, item)
+//   // console.log(`item row -->`, item.row)
+//   // console.log(`item column -->`, item.column)
+// }))
+
+
+
+// console.log(tetrominoes.Tee.dimensions)
 
 // rows.map(row => {
 //     console.log(row[0].children)
