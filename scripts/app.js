@@ -154,68 +154,123 @@ const o = [{row: 0, cell: 0}, {row: 0, cell: 1}, { row: 1, cell: 0}, {row: 1, ce
 
 function createI() {
   // Refactor Create a function to take the bar array and loop through each item
-  console.log(rows[0].childNodes[0].classList.add('block'))
-  console.log(rows[1].childNodes[0].classList.add('block'))
-  console.log(rows[2].childNodes[0].classList.add('block'))
-  console.log(rows[3].childNodes[0].classList.add('block'))
+  console.log(rows[0].childNodes[0].classList.add('block', 'i'))
+  console.log(rows[1].childNodes[0].classList.add('block', 'i'))
+  console.log(rows[2].childNodes[0].classList.add('block', 'i'))
+  console.log(rows[3].childNodes[0].classList.add('block', 'i'))
 }
 // createI()
 
 function createL() {
-  console.log(rows[0].childNodes[0].classList.add('block'))
-  console.log(rows[1].childNodes[0].classList.add('block'))
-  console.log(rows[2].childNodes[0].classList.add('block'))
-  console.log(rows[2].childNodes[1].classList.add('block'))
+  // console.log(rows[0].childNodes[0].classList.add('block', 'l'))
+  // console.log(rows[1].childNodes[0].classList.add('block', 'l'))
+  // console.log(rows[2].childNodes[0].classList.add('block', 'l'))
+  // console.log(rows[2].childNodes[1].classList.add('block', 'l'))
+  console.log(rows[0].childNodes[2].classList.add('block', 'l'))
+  console.log(rows[1].childNodes[2].classList.add('block', 'l'))
+  console.log(rows[2].childNodes[2].classList.add('block', 'l'))
+  console.log(rows[2].childNodes[3].classList.add('block', 'l'))
 }
 
 // createL()
 
 function createJ() {
   // Refactor Create a function to take the bar array and loop through each item
-  console.log(rows[0].childNodes[1].classList.add('block'))
-  console.log(rows[1].childNodes[1].classList.add('block'))
-  console.log(rows[2].childNodes[1].classList.add('block'))
-  console.log(rows[2].childNodes[0].classList.add('block'))
+  // rows[0].childNodes[1].classList.add('block', 'j')
+  // rows[1].childNodes[1].classList.add('block', 'j')
+  // rows[2].childNodes[1].classList.add('block', 'j')
+  // rows[2].childNodes[0].classList.add('block', 'j')
+
+  rows[0].childNodes[6].classList.add('block', 'j')
+  rows[1].childNodes[6].classList.add('block', 'j')
+  rows[2].childNodes[6].classList.add('block', 'j')
+  rows[2].childNodes[5].classList.add('block', 'j')
 }
 
 // createJ()
 
 function createT() {
-  console.log(rows[0].childNodes[1].classList.add('block'))
-  console.log(rows[1].childNodes[0].classList.add('block'))
-  console.log(rows[1].childNodes[1].classList.add('block'))
-  console.log(rows[1].childNodes[2].classList.add('block'))
+  // rows[0].childNodes[1].classList.add('block', 't')
+  // rows[1].childNodes[0].classList.add('block', 't')
+  // rows[1].childNodes[1].classList.add('block', 't')
+  // rows[1].childNodes[2].classList.add('block', 't')
+
+  rows[5].childNodes[1].classList.add('block', 't')
+  rows[6].childNodes[0].classList.add('block', 't')
+  rows[6].childNodes[1].classList.add('block', 't')
+  rows[6].childNodes[2].classList.add('block', 't')
 }
 
 // createT()
 
 function createS() {
   // Refactor Create a function to take the bar array and loop through each item
-  console.log(rows[0].childNodes[1].classList.add('block'))
-  console.log(rows[1].childNodes[1].classList.add('block'))
-  console.log(rows[2].childNodes[1].classList.add('block'))
-  console.log(rows[2].childNodes[2].classList.add('block'))
+  // rows[0].childNodes[1].classList.add('block', 's')
+  // rows[1].childNodes[1].classList.add('block', 's')
+  // rows[2].childNodes[1].classList.add('block', 's')
+  // rows[2].childNodes[2].classList.add('block', 's')
+
+  rows[5].childNodes[6].classList.add('block', 's')
+  rows[5].childNodes[5].classList.add('block', 's')
+  rows[6].childNodes[4].classList.add('block', 's')
+  rows[6].childNodes[5].classList.add('block', 's')
 }
 // createS()
 
 function createZ() {
   // Refactor Create a function to take the bar array and loop through each item
-  console.log(rows[0].childNodes[1].classList.add('block'))
-  console.log(rows[1].childNodes[1].classList.add('block'))
-  console.log(rows[2].childNodes[1].classList.add('block'))
-  console.log(rows[2].childNodes[0].classList.add('block'))
+  rows[8].childNodes[5].classList.add('block', 'z')
+  rows[8].childNodes[6].classList.add('block', 'z')
+  rows[9].childNodes[7].classList.add('block', 'z')
+  rows[9].childNodes[6].classList.add('block', 'z')
 }
 // createZ()
 
 // const o = [{row: 0, cell: 0}, {row: 0, cell: 1}, { row: 1, cell: 0}, {row: 1, cell: 1}]
 function createO() {
   // Refactor Create a function to take the bar array and loop through each item
-  console.log(rows[0].childNodes[0].classList.add('block'))
-  console.log(rows[0].childNodes[1].classList.add('block'))
-  console.log(rows[1].childNodes[0].classList.add('block'))
-  console.log(rows[1].childNodes[1].classList.add('block'))
+  // rows[8].childNodes[1].classList.add('block', 'o')
+  // rows[8].childNodes[2].classList.add('block', 'o')
+  // rows[9].childNodes[1].classList.add('block', 'o')
+  // rows[9].childNodes[2].classList.add('block', 'o')
+
+  rows[0].childNodes[0].classList.add('block', 'o')
+  rows[0].childNodes[1].classList.add('block', 'o')
+  rows[1].childNodes[0].classList.add('block', 'o')
+  rows[1].childNodes[1].classList.add('block', 'o')
 }
-// createO()
+createO()
+
+// Testing block movement and barriers
+function addBlock(blockPosition) {
+  cells[blockPosition].classList.add(blockClass)
+}
+
+function removeBlock(blockPosition) {
+  cells[blockPosition].classList.remove(blockClass)
+}
+
+function handleKeyPress(event) {
+  // console.log(event.keyCode) - Log the key pressed
+
+  const key = event.keyCode
+
+  removeBlock(blockCurrentPosition)
+
+  if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
+    blockCurrentPosition++
+  } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
+    blockCurrentPosition--
+  } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
+    blockCurrentPosition -= 10
+  } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
+    blockCurrentPosition += 10
+  }
+
+  addBlock(blockCurrentPosition)
+}
+
+document.addEventListener('keydown', handleKeyPress)
 
 // [{rows: 0, cell: 1}, {rows: 1, cell: 0}, {rows: 1, cell: 1}, {rows: 1, cell: 2}]
 
@@ -238,6 +293,8 @@ rows.filter(row => {
   //console.log(row)
 
 })
+
+// if .every() row contains a block then remove that row and add to score
 
 // console.log(tee.forEach(item => {
 //   console.log(`item -->`, item)
@@ -277,33 +334,33 @@ function generateTetrominoes() {
 
 
 
-// Testing block movement and barriers
-function addBlock(blockPosition) {
-  cells[blockPosition].classList.add(blockClass)
-}
+// // Testing block movement and barriers
+// function addBlock(blockPosition) {
+//   cells[blockPosition].classList.add(blockClass)
+// }
 
-function removeBlock(blockPosition) {
-  cells[blockPosition].classList.remove(blockClass)
-}
+// function removeBlock(blockPosition) {
+//   cells[blockPosition].classList.remove(blockClass)
+// }
 
-function handleKeyPress(event) {
-  // console.log(event.keyCode) - Log the key pressed
+// function handleKeyPress(event) {
+//   // console.log(event.keyCode) - Log the key pressed
 
-  const key = event.keyCode
+//   const key = event.keyCode
 
-  removeBlock(blockCurrentPosition)
+//   removeBlock(blockCurrentPosition)
 
-  if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
-    blockCurrentPosition++
-  } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
-    blockCurrentPosition--
-  } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
-    blockCurrentPosition -= 10
-  } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
-    blockCurrentPosition += 10
-  }
+//   if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
+//     blockCurrentPosition++
+//   } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
+//     blockCurrentPosition--
+//   } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
+//     blockCurrentPosition -= 10
+//   } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
+//     blockCurrentPosition += 10
+//   }
 
-  addBlock(blockCurrentPosition)
-}
+//   addBlock(blockCurrentPosition)
+// }
 
-document.addEventListener('keydown', handleKeyPress)
+// document.addEventListener('keydown', handleKeyPress)

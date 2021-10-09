@@ -17,7 +17,8 @@ body {
 }
 
 .grid {
-  /* border: 1px solid rgb(121, 121, 124); */
+  border: 3px solid rgb(121, 121, 124);
+  border-radius: 4px;
   height: 650px;
   width: 350px;
   display: flex;
@@ -32,7 +33,7 @@ body {
 }
 
 .grid .row .cell {
-  border: 1px solid rgb(121, 121, 124);
+  /* border: 1px solid rgb(121, 121, 124); */
   width: 100%;
   height: 100%;
 }
@@ -40,37 +41,38 @@ body {
 .block {
   width: 100%;
   height: 100%;
+  background-color: black;
 }
 
 /* Color Palette */
 /* https://coolors.co/3c91e6-06d6a0-efa00b-7e3f8f-e0607e-fb3640-307351 */
 
 .i {
-  color: #EFA00B;
+  background-color: #EFA00B;
 }
 
 .l {
-  color: #FB3640;
+  background-color: #FB3640;
 }
 
 .j {
-  color: #307351;
+  background-color: #307351;
 }
 
 .t {
-  color: #7E3F8F;
+  background-color: #7E3F8F;
 }
 
 .s {
-  color: #E0607E;
+  background-color: #E0607E;
 }
 
 .z {
-  color: #06D6A0;
+  background-color: #06D6A0;
 }
 
 .o {
-  color: #3C91E6;
+  background-color: #3C91E6;
 }
 
 /* 
