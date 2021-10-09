@@ -290,7 +290,36 @@ let tPC2 = 6
 let tPC3 = 7
 let tPC4 = 6
 
+console.log(`Outside Rotate Function --> TPR1`, tPR1)
+console.log(`Outside Rotate Function --> TPR2`, tPR2)
+console.log(`Outside Rotate Function --> TPR3`, tPR3)
+console.log(`Outside Rotate Function --> TPR4`, tPR4)
+
+console.log(`Outside Rotate Function --> TPC1`, tPC1)
+console.log(`Outside Rotate Function --> TPC2`, tPC2)
+console.log(`Outside Rotate Function --> TPC3`, tPC3)
+console.log(`Outside Rotate Function --> TPC4`, tPC4)
+
 function tetrominoesRotateRight(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
+  tPR1 += 1
+  tPR2 += 0
+  tPR3 += -1
+  tPR4 += 0
+
+  tPC1 += 1
+  tPC2 += 1
+  tPC3 += 0
+  tPC4 += -1
+
+  console.log(`Inside Rotate Function --> TPR1`, tPR1)
+  console.log(`Inside Rotate Function --> TPR2`, tPR2)
+  console.log(`Inside Rotate Function --> TPR3`, tPR3)
+  console.log(`Inside Rotate Function --> TPR4`, tPR4)
+
+  console.log(`Inside Rotate Function --> TPC1`, tPC1)
+  console.log(`Inside Rotate Function --> TPC2`, tPC2)
+  console.log(`Inside Rotate Function --> TPC3`, tPC3)
+  console.log(`Inside Rotate Function --> TPC4`, tPC4)
 
 }
 
@@ -304,6 +333,25 @@ function handleKeyPress(event) {
   removeTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4)
 
   //if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
+  // console.log(key)
+  if(key === 80) {
+    console.log(`------REFRESH-----`)
+    console.log(`Outside Rotate Function --> TPR1`, tPR1)
+    console.log(`Outside Rotate Function --> TPR2`, tPR2)
+    console.log(`Outside Rotate Function --> TPR3`, tPR3)
+    console.log(`Outside Rotate Function --> TPR4`, tPR4)
+
+    console.log(`Outside Rotate Function --> TPC1`, tPC1)
+    console.log(`Outside Rotate Function --> TPC2`, tPC2)
+    console.log(`Outside Rotate Function --> TPC3`, tPC3)
+    console.log(`Outside Rotate Function --> TPC4`, tPC4)
+    console.log(`------REFRESH-----`)
+  }
+
+  console.log(key)
+  if(key === 82) {
+    tetrominoesRotateRight(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4)
+  }
 
   if(key === 39 && tPC1 % gridWidth !== gridWidth - 1 && tPC2 % gridWidth !== gridWidth - 1 && tPC3 % gridWidth !== gridWidth - 1 && tPC4 % gridWidth !== gridWidth - 1) { // Move Right
     // blockCurrentPosition++
