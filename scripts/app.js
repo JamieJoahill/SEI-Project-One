@@ -301,7 +301,7 @@ function handleKeyPress(event) {
 
   //if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
 
-  if(key === 39) { // Move Right
+  if(key === 39 && tPC1 % gridWidth !== gridWidth - 1 && tPC2 % gridWidth !== gridWidth - 1 && tPC3 % gridWidth !== gridWidth - 1 && tPC4 % gridWidth !== gridWidth - 1) { // Move Right
     // blockCurrentPosition++
     // tetrominoesPositionRow++
     tPC1++
@@ -310,7 +310,7 @@ function handleKeyPress(event) {
     tPC4++
   // } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
 
-  } else if(key === 37) { // Move Left
+  } else if(key === 37 && tPC1 % gridWidth !== 0 && tPC2 % gridWidth !== 0 && tPC3 % gridWidth !== 0 && tPC4 % gridWidth !== 0) { // Move Left
     // blockCurrentPosition--
     // tetrominoesPositionRow--
     tPC1--
@@ -318,7 +318,7 @@ function handleKeyPress(event) {
     tPC3--
     tPC4--
   // } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
-  } else if(key === 38) { // Move Up
+  } else if(key === 38 && tPR1 >= gridWidth && tPR2 >= gridWidth && tPR3 >= gridWidth && tPR4 >= gridWidth) { // Move Up
     // blockCurrentPosition -= 10
     // tetrominoesPositionCell -= 10
     tPR1--
@@ -326,14 +326,19 @@ function handleKeyPress(event) {
     tPR3--
     tPR4--
   // } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
-  } else if(key === 40) { // Move Down
+  } else if(key === 40 && tPR1 + gridWidth <= gridWidth * gridHeight - 1 && tPR2 + gridWidth <= gridWidth * gridHeight - 1 && tPR3 + gridWidth <= gridWidth * gridHeight - 1 && tPR4 + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
     // blockCurrentPosition += 10
     // tetrominoesPositionCell += 10
     tPR1++
     tPR2++
     tPR3++
     tPR4++
-  }
+  } // else if(key === 32) {
+  //   tPR1+= 10
+  //   tPR2+= 10
+  //   tPR3+= 10
+  //   tPR4+= 10
+  // }
 
   // addBlock(blockCurrentPosition)
   // addTetrominoes(tetrominoesPosition)
