@@ -7,7 +7,6 @@ const gridHeight = 20
 const rows = []
 const cells = []
 
-
 const blockClass = 'block'
 const blockStartingPosition = 0
 
@@ -123,10 +122,14 @@ function generateShape() {
 
   const tetrominoesList = [i, l, j, t, s, z, o]
   const randomShape = Math.floor(Math.random() * tetrominoesList.length)
+  // console.log(`RandomShape -->`,tetrominoesList[randomShape].default.map(item => item.row += 3))
+  tetrominoesList[randomShape].default.map(item => item.cell += 4)
   shapeHistory.push(tetrominoesList[randomShape])
-  return addTetro(tetrominoesList[randomShape])
-
+  //return addTetro(tetrominoesList[randomShape]) // -  Run This to Generate a Random Terominoe
 }
+
+generateShape()
+console.log(shapeHistory)
 
 // Array of a list of randomly generate Tetrominoes
 // for(let i = 0; i < 10; i++) {
@@ -151,7 +154,7 @@ function removeTetro(shape) {
   })
 }
 
-let currentShape = generateShape()
+// let currentShape = generateShape()
 
 
 function moveDown() {
@@ -180,7 +183,6 @@ function moveDown() {
       // To add collison for blocks      
       //---------------------------------------------
 
-
       clearInterval(moveDownTimer)
     }
     // if at bottom stop moving down
@@ -188,6 +190,8 @@ function moveDown() {
   },800)
 
 }
+
+// moveDown()
 
 function enableKeyPress(event) {
   const key = event.keyCode
