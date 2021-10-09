@@ -239,7 +239,7 @@ function createO() {
   rows[1].childNodes[0].classList.add('block', 'o')
   rows[1].childNodes[1].classList.add('block', 'o')
 }
-createO()
+// createO()
 
 // Testing block movement and barriers
 function addTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
@@ -255,10 +255,10 @@ function addTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
   // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell].classList.add('block', 'o')
   // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell + 1].classList.add('block', 'o')
 
-  rows[tPR1].childNodes[tPC1].classList.add('block', 'o')
-  rows[tPR2].childNodes[tPC2].classList.add('block', 'o')
-  rows[tPR3].childNodes[tPC3].classList.add('block', 'o')
-  rows[tPR4].childNodes[tPC4].classList.add('block', 'o')
+  rows[tPR1].childNodes[tPC1].classList.add('block', 'z')
+  rows[tPR2].childNodes[tPC2].classList.add('block', 'z')
+  rows[tPR3].childNodes[tPC3].classList.add('block', 'z')
+  rows[tPR4].childNodes[tPC4].classList.add('block', 'z')
 }
 
 function removeTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
@@ -274,21 +274,25 @@ function removeTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
   // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell].classList.remove('block', 'o')
   // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell + 1].classList.remove('block', 'o')
 
-  rows[tPR1].childNodes[tPC1].classList.remove('block', 'o')
-  rows[tPR2].childNodes[tPC2].classList.remove('block', 'o')
-  rows[tPR3].childNodes[tPC3].classList.remove('block', 'o')
-  rows[tPR4].childNodes[tPC4].classList.remove('block', 'o')
+  rows[tPR1].childNodes[tPC1].classList.remove('block', 'z')
+  rows[tPR2].childNodes[tPC2].classList.remove('block', 'z')
+  rows[tPR3].childNodes[tPC3].classList.remove('block', 'z')
+  rows[tPR4].childNodes[tPC4].classList.remove('block', 'z')
 }
 
-let tPR1 = 0
-let tPR2 = 0
-let tPR3 = 1
-let tPR4 = 1
+let tPR1 = 8
+let tPR2 = 8
+let tPR3 = 9
+let tPR4 = 9
 
-let tPC1 = 0
-let tPC2 = 1
-let tPC3 = 0
-let tPC4 = 1
+let tPC1 = 5
+let tPC2 = 6
+let tPC3 = 7
+let tPC4 = 6
+
+function tetrominoesRotateRight(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
+
+}
 
 function handleKeyPress(event) {
   // console.log(event.keyCode) - Log the key pressed
@@ -308,6 +312,12 @@ function handleKeyPress(event) {
     tPC2++
     tPC3++
     tPC4++
+    console.log(`TPC - MOVE RIGHT`)
+    console.log(`TPC1-->`, tPC1)
+    console.log(`TPC2-->`, tPC2)
+    console.log(`TPC3-->`, tPC3)
+    console.log(`TPC4-->`, tPC4)
+    console.log(`TPC - MOVE RIGHT`)
   // } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
 
   } else if(key === 37 && tPC1 % gridWidth !== 0 && tPC2 % gridWidth !== 0 && tPC3 % gridWidth !== 0 && tPC4 % gridWidth !== 0) { // Move Left
@@ -317,22 +327,42 @@ function handleKeyPress(event) {
     tPC2--
     tPC3--
     tPC4--
+    console.log(`TPC - MOVE LEFT`)
+    console.log(`TPC1-->`, tPC1)
+    console.log(`TPC2-->`, tPC2)
+    console.log(`TPC3-->`, tPC3)
+    console.log(`TPC4-->`, tPC4)
+    console.log(`TPC - MOVE LEFT`)
   // } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
-  } else if(key === 38 && tPR1 >= gridWidth && tPR2 >= gridWidth && tPR3 >= gridWidth && tPR4 >= gridWidth) { // Move Up
+  } else if(key === 38 && tPR1 <= gridHeight && tPR2 <= gridHeight && tPR3 <= gridHeight && tPR4 <= gridHeight) { // Move Up
     // blockCurrentPosition -= 10
     // tetrominoesPositionCell -= 10
     tPR1--
     tPR2--
     tPR3--
     tPR4--
+    console.log(`TPR - MOVE UP`)
+    console.log(`TPR1 -->`, tPR1)
+    console.log(`TPR2 -->`, tPR2)
+    console.log(`TPR3 -->`, tPR3)
+    console.log(`TPR4 -->`, tPR4)
+    console.log(`TPR - MOVE UP`)
   // } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
-  } else if(key === 40 && tPR1 + gridWidth <= gridWidth * gridHeight - 1 && tPR2 + gridWidth <= gridWidth * gridHeight - 1 && tPR3 + gridWidth <= gridWidth * gridHeight - 1 && tPR4 + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
+  // } else if(key === 40 && tPR1 + gridWidth <= gridWidth * gridHeight - 1 && tPR2 + gridWidth <= gridWidth * gridHeight - 1 && tPR3 + gridWidth <= gridWidth * gridHeight - 1 && tPR4 + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
+
+  } else if(key === 40 && tPR1 < gridHeight - 1 && tPR2 < gridHeight - 1 && tPR3 < gridHeight - 1 && tPR4 < gridHeight - 1) { 
     // blockCurrentPosition += 10
     // tetrominoesPositionCell += 10
     tPR1++
     tPR2++
     tPR3++
     tPR4++
+    console.log(`TPR - MOVE DOWN`)
+    console.log(`TPR1 -->`, tPR1)
+    console.log(`TPR2 -->`, tPR2)
+    console.log(`TPR3 -->`, tPR3)
+    console.log(`TPR4 -->`, tPR4)
+    console.log(`TPR - MOVE DOWN`)
   } // else if(key === 32) {
   //   tPR1+= 10
   //   tPR2+= 10
