@@ -242,32 +242,103 @@ function createO() {
 createO()
 
 // Testing block movement and barriers
-function addBlock(blockPosition) {
-  cells[blockPosition].classList.add(blockClass)
+function addTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
+  // cells[blockPosition].classList.add(blockClass)
+
+  // rows[0].childNodes[0].classList.add('block', 'o')
+  // rows[0].childNodes[1].classList.add('block', 'o')
+  // rows[1].childNodes[0].classList.add('block', 'o')
+  // rows[1].childNodes[1].classList.add('block', 'o')
+
+  // rows[tetrominoesPositionRow].childNodes[tetrominoesPositionCell].classList.add('block', 'o')
+  // rows[tetrominoesPositionRow].childNodes[tetrominoesPositionCell + 1].classList.add('block', 'o')
+  // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell].classList.add('block', 'o')
+  // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell + 1].classList.add('block', 'o')
+
+  rows[tPR1].childNodes[tPC1].classList.add('block', 'o')
+  rows[tPR2].childNodes[tPC2].classList.add('block', 'o')
+  rows[tPR3].childNodes[tPC3].classList.add('block', 'o')
+  rows[tPR4].childNodes[tPC4].classList.add('block', 'o')
 }
 
-function removeBlock(blockPosition) {
-  cells[blockPosition].classList.remove(blockClass)
+function removeTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4) {
+  // cells[blockPosition].classList.remove(blockClass)
+
+  // rows[0].childNodes[0].classList.remove('block', 'o')
+  // rows[0].childNodes[1].classList.remove('block', 'o')
+  // rows[1].childNodes[0].classList.remove('block', 'o')
+  // rows[1].childNodes[1].classList.remove('block', 'o')
+
+  // rows[tetrominoesPositionRow].childNodes[tetrominoesPositionCell].classList.remove('block', 'o')
+  // rows[tetrominoesPositionRow].childNodes[tetrominoesPositionCell + 1].classList.remove('block', 'o')
+  // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell].classList.remove('block', 'o')
+  // rows[tetrominoesPositionRow + 1].childNodes[tetrominoesPositionCell + 1].classList.remove('block', 'o')
+
+  rows[tPR1].childNodes[tPC1].classList.remove('block', 'o')
+  rows[tPR2].childNodes[tPC2].classList.remove('block', 'o')
+  rows[tPR3].childNodes[tPC3].classList.remove('block', 'o')
+  rows[tPR4].childNodes[tPC4].classList.remove('block', 'o')
 }
+
+let tPR1 = 0
+let tPR2 = 0
+let tPR3 = 1
+let tPR4 = 1
+
+let tPC1 = 0
+let tPC2 = 1
+let tPC3 = 0
+let tPC4 = 1
 
 function handleKeyPress(event) {
   // console.log(event.keyCode) - Log the key pressed
 
   const key = event.keyCode
 
-  removeBlock(blockCurrentPosition)
+  // removeBlock(blockCurrentPosition)
+  // removeTetrominoes(tetrominoesPosition)
+  removeTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4)
 
-  if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
-    blockCurrentPosition++
-  } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
-    blockCurrentPosition--
-  } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
-    blockCurrentPosition -= 10
-  } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
-    blockCurrentPosition += 10
+  //if(key === 39 && blockCurrentPosition % gridWidth !== gridWidth - 1) { // Move Right
+
+  if(key === 39) { // Move Right
+    // blockCurrentPosition++
+    // tetrominoesPositionRow++
+    tPC1++
+    tPC2++
+    tPC3++
+    tPC4++
+  // } else if(key === 37 && blockCurrentPosition % gridWidth !== 0) { // Move Left
+
+  } else if(key === 37) { // Move Left
+    // blockCurrentPosition--
+    // tetrominoesPositionRow--
+    tPC1--
+    tPC2--
+    tPC3--
+    tPC4--
+  // } else if(key === 38 && blockCurrentPosition >= gridWidth) { // Move Up
+  } else if(key === 38) { // Move Up
+    // blockCurrentPosition -= 10
+    // tetrominoesPositionCell -= 10
+    tPR1--
+    tPR2--
+    tPR3--
+    tPR4--
+  // } else if(key === 40 && blockCurrentPosition + gridWidth <= gridWidth * gridHeight - 1) { // Move Down
+  } else if(key === 40) { // Move Down
+    // blockCurrentPosition += 10
+    // tetrominoesPositionCell += 10
+    tPR1++
+    tPR2++
+    tPR3++
+    tPR4++
   }
 
-  addBlock(blockCurrentPosition)
+  // addBlock(blockCurrentPosition)
+  // addTetrominoes(tetrominoesPosition)
+  addTetrominoes(tPR1, tPR2, tPR3, tPR4, tPC1, tPC2, tPC3, tPC4)
+
 }
 
 document.addEventListener('keydown', handleKeyPress)
@@ -287,12 +358,12 @@ document.addEventListener('keydown', handleKeyPress)
 //   })
 // })
 
-rows.filter(row => {
-  // console.log(`Row Data Attribute ->`, row.getAttribute('data-row'))
-  const rowDataAttr = Number(row.getAttribute('data-row'))
-  //console.log(row)
+// rows.filter(row => {
+//   // console.log(`Row Data Attribute ->`, row.getAttribute('data-row'))
+//   const rowDataAttr = Number(row.getAttribute('data-row'))
+//   //console.log(row)
 
-})
+// })
 
 // if .every() row contains a block then remove that row and add to score
 
@@ -311,16 +382,16 @@ rows.filter(row => {
 // })
 
 
-function generateTetrominoes() {
-  // this function will generate a random Tetrominoe based on it's Dimmensions
+// function generateTetrominoes() {
+//   // this function will generate a random Tetrominoe based on it's Dimmensions
 
-  // console.log(rows)
-  // console.log(cells)
+//   // console.log(rows)
+//   // console.log(cells)
 
-  // console.log(rows[0])
-  // console.log(cells[1])
-  // console.log(rows[0])
-}
+//   // console.log(rows[0])
+//   // console.log(cells[1])
+//   // console.log(rows[0])
+// }
 
 // console.log(createTetrominoes())
 // console.log(rows)
