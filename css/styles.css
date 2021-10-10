@@ -75,6 +75,26 @@ body {
   background-color: #3C91E6;
 }
 
+h4 {
+  text-align: center;
+}
+
+.hold {
+  border: 1px solid red;
+  position: relative;
+  top: -250px;
+  width: 100px;
+  height: 100px;
+}
+
+.history {
+  border: 1px solid green;
+  position: relative;
+  top: -175px;
+  width: 100px;
+  height: 250px;
+}
+
 /* 
 .grid {
   border: 1px solid rgb(121, 121, 124);
