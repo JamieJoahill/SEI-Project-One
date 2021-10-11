@@ -35,17 +35,19 @@ createGrid()
 const i = {
   default: [{row: 0, cell: 1}, {row: 0, cell: 2}, {row: 0, cell: 3}, {row: 0, cell: 4}],
   rotations: [{row: 1, cell: 1}, {row: 1, cell: 2}, {row: 1, cell: 3}, {row: 1, cell: 4}],
-  class: ['i']
+  class: ['i'],
+  isMoving: false
 }
 
 const l = {
   default: [{row: 0, cell: 0}, {row: 1, cell: 0}, { row: 2, cell: 0}, {row: 2, cell: 1}],
   rotations: [
-    [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}],
+    [{row: 0, cell: 0}, {row: 1, cell:0}, {row: 2, cell: 0}, {row: 2, cell: 1}],
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}],
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}]
   ],
-  class: ['l']
+  class: ['l'],
+  isMoving: false
 }
 
 const j = {
@@ -55,7 +57,8 @@ const j = {
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}],
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}]
   ],
-  class: ['j']
+  class: ['j'],
+  isMoving: false
 }
 
 const t = {
@@ -65,7 +68,8 @@ const t = {
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}],
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}]
   ],
-  class: ['t']
+  class: ['t'],
+  isMoving: false
 }
 
 const s = {
@@ -73,7 +77,8 @@ const s = {
   rotations: [
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}],
   ],
-  class: ['s']
+  class: ['s'],
+  isMoving: false
 }
 
 
@@ -82,13 +87,15 @@ const z = {
   rotations: [
     [{row: 0, cell: 0}, {row: 0, cell:0}, {row: 0, cell: 0}, {row: 0, cell: 0}],
   ],
-  class: ['z']
+  class: ['z'],
+  isMoving: false
 }
 
 
 const o = {
   default: [{row: 0, cell: 0}, {row: 0, cell: 1}, { row: 1, cell: 0}, {row: 1, cell: 1}],
-  class: ['o']
+  class: ['o'],
+  isMoving: false
 }
 
 
@@ -148,17 +155,40 @@ function generateShape() {
 
   // console.log(`RandomShape -->`,tetrominoesList[randomShape].default.map(item => item.row += 3))
   tetrominoesList[randomShape].default.map(item => {
-    if(tetrominoesList[randomShape] === tetrominoesList[0]) {
+    tetrominoesList[randomShape].isMoving = true
+    if(tetrominoesList[randomShape] === tetrominoesList[0]) { 
       return item.cell += 2
     } else {
       return item.cell += 4
     }
   })
+  console.log(tetrominoesList[randomShape])
   // return addTetro(tetrominoesList[randomShape]) // -  Run This to Generate a Random Terominoe
 }
 
+generateShape()
+
+
+function rotateShape() {
+  console.log('rotate shape function')
+}
+
+
 console.log(`Shape History --> `,shapeHistory)
 let currentShape = tetrominoesList[randomShape]
+let holdShapeArray = []
+
+
+function setholdShape() {
+  holdShapeArray.push(currentShape)
+  console.log(holdShapeArray)
+  // then I want current shape to be a new shape
+  document.querySelector('.hold').innerText = currentShape.class
+}
+
+function getHoldShape() {
+
+}
 
 // generateShape()
 
@@ -180,6 +210,11 @@ let currentShape = tetrominoesList[randomShape]
 // console.log(shapeHistory)
 
 // generateShape()
+
+// Will return the same amount of rows but you can change the rows inside the array
+rows.map(row => {
+
+})
 
 // Checks which element contains the class/state of block
 rows.forEach(row => {
@@ -252,6 +287,8 @@ function moveDown() {
       // To add collison for blocks      
       //---------------------------------------------
 
+      // find current shapes position when stopped add a class of lock and lock that cell in place.
+      
       // Set that shape in this space
 
       clearInterval(moveDownTimer)
@@ -277,6 +314,18 @@ function enableKeyPress(event) {
   // e.g. removeTetro(tetrominoesList[randomShape])
   removeTetro(currentShape)
 
+  // if 'H' is pressed run getHoldShape/setHoldShape
+  if(key === 72) {
+    // Switch between the hold shape and current shape with the 'H' Key
+    if(holdShapeArray.length === 1) {
+      getHoldShape()
+      console.log('Get Hold Shape')
+    } else {
+      setholdShape(currentShape)
+      console.log('Set Hold Shape')
+    }
+  }
+
   if(key === 39 && currentShape.default[0].cell % gridWidth !== gridWidth - 1 && currentShape.default[1].cell % gridWidth !== gridWidth - 1 && currentShape.default[2].cell % gridWidth !== gridWidth - 1 && currentShape.default[3].cell % gridWidth !== gridWidth - 1) {
     currentShape.default[0].cell++
     currentShape.default[1].cell++
@@ -287,11 +336,15 @@ function enableKeyPress(event) {
     currentShape.default[1].cell--
     currentShape.default[2].cell--
     currentShape.default[3].cell--
-  } else if(key === 38 && currentShape.default[0].row <= gridHeight && currentShape.default[1].row <= gridHeight && currentShape.default[2].row <= gridHeight && currentShape.default[3].row <= gridHeight) {
-    currentShape.default[0].row--
-    currentShape.default[1].row--
-    currentShape.default[2].row--
-    currentShape.default[3].row--
+  // } else if(key === 38 && currentShape.default[0].row <= gridHeight && currentShape.default[1].row <= gridHeight && currentShape.default[2].row <= gridHeight && currentShape.default[3].row <= gridHeight) {
+  //   currentShape.default[0].row--
+  //   currentShape.default[1].row--
+  //   currentShape.default[2].row--
+  //   currentShape.default[3].row--
+  } else if(key === 38) {
+    rotateShape()
+    // Rotate function to be place in here
+    // e.g. rotateShape(currentShape)
   } else if(key === 40 && currentShape.default[0].row < gridHeight - 1 && currentShape.default[1].row < gridHeight - 1 && currentShape.default[2].row < gridHeight - 1 && currentShape.default[3].row < gridHeight - 1) {
     currentShape.default[0].row++
     currentShape.default[1].row++
