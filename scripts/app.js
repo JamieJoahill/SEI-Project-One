@@ -166,7 +166,11 @@ function generateShape() {
   // return addTetro(tetrominoesList[randomShape]) // -  Run This to Generate a Random Terominoe
 }
 
-generateShape()
+// setInterval(() => {
+    //generateShape()
+// }, 2000);
+
+
 
 
 function rotateShape() {
@@ -174,7 +178,7 @@ function rotateShape() {
 }
 
 
-console.log(`Shape History --> `,shapeHistory)
+// console.log(`Shape History --> `,shapeHistory)
 let currentShape = tetrominoesList[randomShape]
 let holdShapeArray = []
 
@@ -209,7 +213,7 @@ function getHoldShape() {
 // }
 // console.log(shapeHistory)
 
-// generateShape()
+generateShape()
 
 // Will return the same amount of rows but you can change the rows inside the array
 rows.map(row => {
@@ -277,8 +281,9 @@ function moveDown() {
       // console.log('Keep Running...')
       count++
     }
-
-    if(count > 18) {
+    // console.log(count)
+    // if(count >= gridHeight - 2) { - current shape block lowest row point
+    if(count >= gridHeight - 2) {
       // console.log('Running...')
       // console.log(grid[0])
       // console.log(`count -->`,count)
@@ -288,18 +293,43 @@ function moveDown() {
       //---------------------------------------------
 
       // find current shapes position when stopped add a class of lock and lock that cell in place.
-      
+      currentShape.isMoving = false
+      stopAndLock(currentShape)
       // Set that shape in this space
+
+      // Somehow remove the old shape and leave locked shape
 
       clearInterval(moveDownTimer)
     }
     // if at bottom stop moving down
 
-  },800)
+  }, 800)
 
 }
 
 moveDown()
+// shape.default.forEach(item => {
+//   rows[item.row].childNodes[item.cell].classList.add('block', `${shape.class[0]}`)
+// })
+
+console.log(`CurrentShape -->`,currentShape)
+
+function stopAndLock(currentShape) {
+  console.log(`From Stop and Lock -->`, currentShape)
+  console.log(document.querySelectorAll('block i'))
+
+  currentShape.default.forEach(item => {
+    rows[item.row].childNodes[item.cell].classList.add('locked', `${currentShape.class[0]}`)
+    rows[item.row].childNodes[item.cell].classList.remove('block', `${currentShape.class[0]}`)
+  })
+
+}
+
+
+// Console.log to check the state of the moving shape
+// setInterval(() => {
+//   console.log(currentShape)
+// }, 3000);
 
 // if the div contains a class of block dont allow anther element to pass through it.
 // Use a conditional if statement to check this
