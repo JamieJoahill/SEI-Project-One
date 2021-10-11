@@ -79,6 +79,11 @@ h4 {
   text-align: center;
 }
 
+.hold,
+.history {
+  border-radius: 4px;
+}
+
 .hold {
   border: 1px solid red;
   position: relative;
